@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/torbjorv/ng-splashscreen/tree/master.svg?style=svg)](https://circleci.com/gh/torbjorv/workflows/ng-splashscreen)
+[![CircleCI](https://circleci.com/gh/torbjorv/ng-splashscreen.svg?style=svg)](https://circleci.com/gh/torbjorv/ng-splashscreen)
 
 ### Deployments
 [Prod](https://torbjorv.github.io/ng-splashscreen) | 
