@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LazyComponent } from './lazy.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LazyComponent', () => {
   let component: LazyComponent;
@@ -8,6 +9,7 @@ describe('LazyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [NoopAnimationsModule],
       declarations: [ LazyComponent ]
     })
     .compileComponents();
