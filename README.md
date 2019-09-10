@@ -1,27 +1,17 @@
-# Splashscreen
+### Angular splashscreen
+Started out with the typical approach of adding the splash screen in index.html, like [here](https://medium.com/@tomastrajan/how-to-style-angular-application-loading-with-angular-cli-like-a-boss-cdd4f5358554). This works great on Chrome and Safari on OSX, but not so well on IOS. On IOS, for whatever reason, the index.html is not rendered until the _entire_ Angular is loaded and parsed. So the splash screen won't show at all and you simply have a white screen until the app suddenly appears.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+To work around this issue, I go the following route:
+- Have an AppComponent that is as lightweight and fast as possible. This is the splash screen.
+- Any child components are lazy loaded programmatically (not through routes).
 
-## Development server
+It's not perfect, but for my case it looks better.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### steps
+- generated new project without routing
+- generated new module 'ng generate module lazy'
+- generated new component 'ng generate component lazy --module lazy'
+- added the 'entryComponent' to the LazyComponent definition
+- added the new lazy module in angular.json under 'lazyModules'
+- setup the AppComponent to lazy load LazyModule
+- added SystemJsNgModuleLoader to providers in AppModule
