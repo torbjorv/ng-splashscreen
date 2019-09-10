@@ -25,9 +25,6 @@ jobs:
                 key: dependencies-{{ checksum "package.json" }}
                 paths:
                     - node_modules
-            - run:  
-                name: Inject build date
-                command: ./scripts/inject-build-date.sh
             # Lint the source code
             - run:
                 name: Linting
